@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/kalapan/static/css/main.a617e044.chunk.css",
+    "main.js": "/kalapan/static/js/main.4d76260e.chunk.js",
+    "main.js.map": "/kalapan/static/js/main.4d76260e.chunk.js.map",
+    "runtime-main.js": "/kalapan/static/js/runtime-main.353862f0.js",
+    "runtime-main.js.map": "/kalapan/static/js/runtime-main.353862f0.js.map",
+    "static/js/2.1ac16d79.chunk.js": "/kalapan/static/js/2.1ac16d79.chunk.js",
+    "static/js/2.1ac16d79.chunk.js.map": "/kalapan/static/js/2.1ac16d79.chunk.js.map",
+    "static/js/3.2cdabf80.chunk.js": "/kalapan/static/js/3.2cdabf80.chunk.js",
+    "static/js/3.2cdabf80.chunk.js.map": "/kalapan/static/js/3.2cdabf80.chunk.js.map",
+    "index.html": "/kalapan/index.html",
+    "static/css/main.a617e044.chunk.css.map": "/kalapan/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.1ac16d79.chunk.js.LICENSE.txt": "/kalapan/static/js/2.1ac16d79.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/kalapan/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.353862f0.js",
+    "static/js/2.1ac16d79.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.4d76260e.chunk.js"
+  ]
+}
