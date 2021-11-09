@@ -36,6 +36,7 @@ function App() {
               onChange={(e) => setName(e.target.value)}
               name='codigo'
               value={name}
+              autoFocus
             />
           </label>
           <input type="submit" value='Consultar'/>
