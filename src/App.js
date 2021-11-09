@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import { render } from '@testing-library/react';
 
 function App() {
   const [name, setName] = useState("")
-  const [valor, setValor] = useState("")
+  const [valor, setValor] = useState([])
   const handleSubmit = (event) => {
     event.preventDefault();
     if(!!name) {
@@ -17,12 +18,14 @@ function App() {
     }
   }
 
+
   const resultValues = () => {
-    let label = <h1></h1>
-    for (let value in  valor) {
-      label = <><h1>{valor[value].nombre}</h1><h1>$ {valor[value].valor_venta}</h1></>
-    }
-    return (label)
+
+    const td = valor.map(value => {
+      return `<td><h4>${value.nombre} - ${value.descripcion}</h4></td> <td><h4>$ &nbsp;${value.valor_venta}</h4></td>`
+    })
+    const tableGeneral = `<br><table border=1><tr>${td.join('</tr></tr>')}</table>`
+    return <div dangerouslySetInnerHTML={{__html: tableGeneral}}></div>
   }
 
   return (
@@ -30,7 +33,7 @@ function App() {
       <header className="App-header">
         <h1>Kalapan</h1>
         <form onSubmit={handleSubmit}>
-          <label>Cod de barras 
+          <label>Cod de barras &nbsp;
             <input 
               type="text"
               onChange={(e) => setName(e.target.value)}
@@ -38,6 +41,7 @@ function App() {
               value={name}
               autoFocus
             />
+            &nbsp;
           </label>
           <input type="submit" value='Consultar'/>
         </form>
