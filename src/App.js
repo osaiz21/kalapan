@@ -1,54 +1,184 @@
-import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
-import { render } from '@testing-library/react';
+import React, {useState} from 'react'
+import { BrowserRouter as Router, Route , Routes} from 'react-router-dom'
 
-function App() {
-  const [name, setName] = useState("")
-  const [valor, setValor] = useState([])
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if(!!name) {
-      fetch(`https://kalapan.herokuapp.com/productos?codigo=${name}`)
-      .then(response => response.json())
-      .then(data => {
+
+const  App = () => {
+  const endpoint = process.env.NODE_ENV === 'development' ? 'http://localhost:3005/': 'https://kalapan.herokuapp.com/'
+
+  const [valor,setValor] = useState([]);
+  const [name, setName] = useState("");
+  const [dataGeneral, setGeneral] = useState({})
+  const handleSubmit = async (event) => {
+    try {
+      event.preventDefault();
+      if(!!name) {
+        const response  = await fetch(`${endpoint}productos?codigo=${name}`)
+        const data = await response.json()
         setValor(data)
-        setName("")
-      })
+        setName('')
+      }
+    }catch(error){
+      console.error(error.stack || error.message)
     }
   }
 
+  const search = () => {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>Kalapan</h1>
+          <form onSubmit={handleSubmit}>
+            <label>Cod de barras &nbsp;
+              <input 
+                type="text"
+                onChange={(val) => {setName(val.target.value)}}
+                name='codigo'
+                value={name}
+                autoFocus
+              />
+              &nbsp;
+            </label>
+            <input type="submit" value='Consultar'/>
+          </form>
+          <ol>
+            {
+              valor.map( (value,i) => {
+                return <li key={i}>{value.nombre} {value.descripcion} - $ {value.valor_venta}<hr></hr></li>
+              })
+            }
+          </ol>
+        </header>
+      </div>
+    )
+  }
+  const handleSubmitProductos = async (e) => {
+    e.preventDefault()
+    try{
+      const result = await fetch(`${endpoint}productos`, {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          method: "POST",
+          body: JSON.stringify(dataGeneral)
+      })
+      const output = await result.json()
+      document.getElementById('form_productos').reset()
+    }catch(error){
+      alert(error.message || error.stack)
+    }
 
-  const resultValues = () => {
-
-    const td = valor.map(value => {
-      return `<td><h4>${value.nombre} - ${value.descripcion}</h4></td> <td><h4>$ &nbsp;${value.valor_venta}</h4></td>`
+  }
+  const assigValProducts = (e) => {
+    setGeneral((key) => { 
+      return { 
+        ...key, 
+        [e.target.name]: e.target.value
+      }
     })
-    const tableGeneral = `<br><table border=1><tr>${td.join('</tr></tr>')}</table>`
-    return <div dangerouslySetInnerHTML={{__html: tableGeneral}}></div>
+  }
+
+  const register = () => {
+    return (
+      <>
+      <form onSubmit={handleSubmitProductos} id='form_productos'>
+              <input 
+                type="text"
+                onChange={assigValProducts}
+                name='nombre'
+                placeholder='nombre'
+              />
+              <hr></hr>
+              <input 
+                type="text"
+                onChange={assigValProducts}
+                name='descripcion'
+                placeholder='descripcion'
+              />
+              <hr></hr>
+              <input 
+                type="text"
+                onChange={assigValProducts}
+                name='valor_venta'
+                placeholder='valor_venta'
+              />
+              <hr></hr>
+              <input 
+                type="text"
+                onChange={assigValProducts}
+                name='valor_sugerido'
+                placeholder='valor_sugerido'
+              />
+              <hr></hr>
+              <input 
+                type="text"
+                onChange={assigValProducts}
+                name='valor_unitario'
+                placeholder='valor_unitario'
+              />
+              <hr></hr>
+              <input 
+                type="text"
+                onChange={assigValProducts}
+                name='categoria'
+                placeholder='categoria'
+              />
+              <hr></hr>
+              <input 
+                type="text"
+                onChange={assigValProducts}
+                name='tarifa_iva'
+                placeholder='tarifa_iva'
+              />
+              <hr></hr>
+              <input 
+                type="text"
+                onChange={assigValProducts}
+                name='cantidad'
+                placeholder='cantidad'
+              />
+              <hr></hr>
+              <input 
+                type="text"
+                onChange={assigValProducts}
+                name='proveedor'
+                placeholder='proveedor'
+              />
+              <hr></hr> <input 
+                type="number"
+                onChange={assigValProducts}
+                name='activo'
+                placeholder='activo'
+                value='1'
+              />
+              <hr></hr> <input 
+                type="text"
+                onChange={assigValProducts}
+                name='codigo_barras'
+                placeholder='codigo_barras'
+              />
+              <hr></hr>
+              <input 
+                type="date"
+                onChange={assigValProducts}
+                name='fecha_vencimiento'
+                placeholder='fecha_vencimiento'
+              />
+            <input type="submit" value='Enviar'/>
+          </form>
+      </>
+    )
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Kalapan</h1>
-        <form onSubmit={handleSubmit}>
-          <label>Cod de barras &nbsp;
-            <input 
-              type="text"
-              onChange={(e) => setName(e.target.value)}
-              name='codigo'
-              value={name}
-              autoFocus
-            />
-            &nbsp;
-          </label>
-          <input type="submit" value='Consultar'/>
-        </form>
-        <div>{ resultValues()} </div>
-      </header>
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route path='/' element={search()}/>
+        <Route path='/register' element={register()}/> 
+      </Routes>
+    </Router>
+  )
 }
 
 export default App;
