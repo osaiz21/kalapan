@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/kalapan/static/css/main.a617e044.chunk.css",
-    "main.js": "/kalapan/static/js/main.2db1603d.chunk.js",
-    "main.js.map": "/kalapan/static/js/main.2db1603d.chunk.js.map",
+    "main.js": "/kalapan/static/js/main.4a41b78f.chunk.js",
+    "main.js.map": "/kalapan/static/js/main.4a41b78f.chunk.js.map",
     "runtime-main.js": "/kalapan/static/js/runtime-main.26c8a140.js",
     "runtime-main.js.map": "/kalapan/static/js/runtime-main.26c8a140.js.map",
-    "static/js/2.2b0c5d0a.chunk.js": "/kalapan/static/js/2.2b0c5d0a.chunk.js",
-    "static/js/2.2b0c5d0a.chunk.js.map": "/kalapan/static/js/2.2b0c5d0a.chunk.js.map",
+    "static/js/2.4b5cfef2.chunk.js": "/kalapan/static/js/2.4b5cfef2.chunk.js",
+    "static/js/2.4b5cfef2.chunk.js.map": "/kalapan/static/js/2.4b5cfef2.chunk.js.map",
     "static/js/3.c0ed7e4a.chunk.js": "/kalapan/static/js/3.c0ed7e4a.chunk.js",
     "static/js/3.c0ed7e4a.chunk.js.map": "/kalapan/static/js/3.c0ed7e4a.chunk.js.map",
     "index.html": "/kalapan/index.html",
     "static/css/main.a617e044.chunk.css.map": "/kalapan/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.2b0c5d0a.chunk.js.LICENSE.txt": "/kalapan/static/js/2.2b0c5d0a.chunk.js.LICENSE.txt"
+    "static/js/2.4b5cfef2.chunk.js.LICENSE.txt": "/kalapan/static/js/2.4b5cfef2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.26c8a140.js",
-    "static/js/2.2b0c5d0a.chunk.js",
+    "static/js/2.4b5cfef2.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.2db1603d.chunk.js"
+    "static/js/main.4a41b78f.chunk.js"
   ]
 }
