@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useState} from 'react'
-import { HashRouter as Router, Route , Routes} from 'react-router-dom'
+import { BrowserRouter as Router, Route , Routes} from 'react-router-dom'
 
 
 const  App = () => {
