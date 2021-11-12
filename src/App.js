@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useState} from 'react'
-import { BrowserRouter as Router, Route , Routes} from 'react-router-dom'
+import { Route , Routes} from 'react-router-dom'
 
 
 const  App = () => {
@@ -172,13 +172,11 @@ const  App = () => {
   }
 
   return (
-    <Router>
-      <Routes>
-        <Route exact path='/kalapan' element={search()}/>
-        <Route exact path='/kalapan/register' element={register()}/>
-        <Route exact path='/' element={search()}/>
-      </Routes>
-    </Router>
+    <Routes>
+      <Route exact path='/kalapan' element={search()}/>
+      <Route exact path='/kalapan/register' element={register()}/>
+      <Route exact path='/' element={search()}/>
+    </Routes>
   )
 }
 
