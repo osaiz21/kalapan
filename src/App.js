@@ -175,7 +175,7 @@ const  App = () => {
     <Router>
       <Routes>
         <Route exact path='/kalapan' element={search()}/>
-        <Route exact path='/register' element={register()}/>
+        <Route exact path='/kalapan/register' element={register()}/>
         <Route exact path='/' element={search()}/>
       </Routes>
     </Router>
