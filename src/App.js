@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useState} from 'react'
-import { Route , Routes } from 'react-router-dom'
+import { Route , Routes, Link } from 'react-router-dom'
 
 
 const  App = () => {
@@ -173,6 +173,8 @@ const  App = () => {
 
   return (
     <div className="App">
+      <Link to="/kalapan/register"><button>registrar</button></Link>
+      <Link to="/kalapan"><button>volver</button></Link>
       <Routes>
         <Route exact path='/kalapan' element={search()}/>
         <Route exact path='/kalapan/register' element={register()}/>
