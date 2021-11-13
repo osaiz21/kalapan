@@ -64,6 +64,7 @@ const  App = () => {
           body: JSON.stringify(dataGeneral)
       })
       const output = await result.json()
+      console.log(output)
       // document.getElementById('form_productos').reset()
     }catch(error){
       alert(error.message || error.stack)
