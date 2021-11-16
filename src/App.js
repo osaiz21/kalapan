@@ -164,6 +164,7 @@ const  App = () => {
                 name='fecha_vencimiento'
                 placeholder='fecha_vencimiento'
               />
+              
             <input type="submit" value='Enviar'/>
           </form>
       </>
