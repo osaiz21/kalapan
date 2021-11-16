@@ -4,7 +4,7 @@ import { Route , Routes, Link } from 'react-router-dom'
 
 
 const  App = () => {
-  const endpoint = process.env.NODE_ENV === 'development' ? 'http://localhost:3005/': 'https://kalapan.herokuapp.com/'
+  const endpoint = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/': 'https://kalapan.herokuapp.com/'
 
   const [valor,setValor] = useState([]);
   const [name, setName] = useState("");
@@ -64,7 +64,7 @@ const  App = () => {
           body: JSON.stringify(dataGeneral)
       })
       const output = await result.json()
-      // document.getElementById('form_productos').reset()
+      //document.getElementById('form_productos').reset()
     }catch(error){
       alert(error.message || error.stack)
     }
